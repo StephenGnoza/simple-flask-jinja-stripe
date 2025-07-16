@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>Products</title>
+</head>
+<body>
+  <h1>Our Products</h1>
+  {% for product in products %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+      <p><strong>Price:</strong> ${{ '%.2f' | format(product.price_cents / 100) }}</p>
+      
+      <form action="/create-checkout-session" method="POST">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+
+        {% if product.options %}
+          {% for option in product.options %}
+            <div style="margin-top: 10px;">
+              <label><strong>{{ option[0] }}:</strong></label>
+              {% if option[1] == "dropdown" %}
+                <select name="option_{{ option[0].replace(' ', '_') }}">
+                  {% for choice in option[2].split(',') %}
+                    <option value="{{ choice.strip() }}">{{ choice.strip() }}</option>
+                  {% endfor %}
+                </select>
+              {% elif option[1] == "textfield" %}
+                <input type="text" name="option_{{ option[0].replace(' ', '_') }}">
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <button type="submit" style="margin-top: 10px;">Buy Now</button>
+      </form>
+    </div>
+  {% endfor %}
+</body>
+</html>

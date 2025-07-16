@@ -1,0 +1,14 @@
+[
+    {
+        "id": "custom_message",
+        "name": "Custom Mug",
+        "description": "A mug with options.",
+        "price_cents": 1500,
+        "currency": "usd",
+        "options": [
+          ["Size", "dropdown", "12oz,16oz"],
+          ["Custom Message", "textfield"]
+        ]
+    }
+  ]
+  
