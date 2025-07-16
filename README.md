@@ -102,28 +102,6 @@ docker-compose up --build
 
 ---
 
-### 5️⃣ Deploy to Google Cloud Run
-
-✅ Build your container:
-
-```bash
-docker build -t gcr.io/YOUR_PROJECT_ID/stripe-flask-app .
-docker push gcr.io/YOUR_PROJECT_ID/stripe-flask-app
-```
-
-✅ Deploy:
-
-```bash
-gcloud run deploy stripe-flask-app \
-  --image gcr.io/YOUR_PROJECT_ID/stripe-flask-app \
-  --platform managed \
-  --region YOUR_REGION \
-  --allow-unauthenticated \
-  --set-env-vars STRIPE_SECRET_KEY=sk_test_...,DOMAIN_URL=https://your-cloud-run-url
-```
-
----
-
 ## ⚙️ Define Products
 
 Products are defined in:
@@ -166,20 +144,6 @@ Example:
 ⭐ User pays via Stripe Checkout  
 ⭐ Options selected are passed as metadata to Stripe PaymentIntent  
 ⭐ You see them in the Stripe Dashboard
-
----
-
-## ❤️ Contributing
-
-PRs welcome!  
-
-If you want to:
-
-✅ Add more input types (checkbox, radio, etc.)  
-✅ Improve the UI (Bootstrap, Tailwind)  
-✅ Add Stripe Webhooks for fulfillment  
-
-Feel free to fork and contribute.
 
 ---
 
