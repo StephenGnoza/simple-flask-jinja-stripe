@@ -163,4 +163,4 @@ Always secure your keys and consider using Stripe Webhooks for order fulfillment
 
 ## 🏁 Author
 
-Built with ❤️ by [Stephen Gnoza](https://github.com/StephenGnoza)
+Built by [Stephen Gnoza](https://github.com/StephenGnoza)
